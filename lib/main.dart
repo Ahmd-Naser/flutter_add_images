@@ -1,6 +1,7 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -50,35 +51,77 @@ class SimpleProject extends StatelessWidget {
               )),
         ],
       ),
-      body: Column(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(30),
-            child: Image.asset(
-              "assets/img/1.jpeg",
-              fit: BoxFit.cover,
-              height: 200,
-              width: 400,
+      body: Container(
+        width: double.infinity,
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
             
-            ),
-          ),
-          Image.network(
-            "https://avatars.githubusercontent.com/u/127310308?v=4",
-            height: 300,
+            
+              Container(
+                margin: EdgeInsets.only(top: 30),
+                child: Text(
+                  "Scania",
+                  style: TextStyle(fontSize: 30, fontStyle: FontStyle.italic),
+                ),
+              ),
+              Container(
+                  margin: EdgeInsets.only(bottom: 30),
 
-            loadingBuilder: (context, child, progress){
-              return progress == null ? child : CircularProgressIndicator();
-            },
-          ),
-          Text(
-            "Hello, Norman 👋",
-            style: TextStyle(fontSize: 30, fontFamily: "myfont"),
-          ),
-          CircleAvatar(
-            backgroundImage: AssetImage("assets/img/Okabe.jpeg"),
-            radius: 50,
-          )
-      ]),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                    
+                      padding: EdgeInsets.all(9),
+                      child: SvgPicture.asset(
+                        "assets/img/f.svg",
+                        color: Colors.blue,
+                        height: 50,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.blue),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 22,
+                    ),
+                    Container(
+                      
+                      padding: EdgeInsets.all(9),
+                      child: SvgPicture.asset(
+                        "assets/img/icons8-twitter.svg",
+                        color: Colors.blue,
+                        height: 50,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.blue),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 22,
+                    ),
+                    Container(
+                      
+                      padding: EdgeInsets.all(9),
+                      child: SvgPicture.asset(
+                        "assets/img/icons8-linked-in.svg",
+                        color: Colors.blue,
+                        height: 50,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.blue),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ]),
+      ),
     );
   }
 }
